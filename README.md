@@ -29,7 +29,7 @@ yarn add redux react-redux @reduxjs/toolkit
 
 ## ✒️ main.tsx, App.tsx, middleware.ts, slice.ts, index.ts 수정 및작성
 ### :zap: main.tsx
-- `react-redux`에서 `Provider` 함수 가져온 후 store 파일 import 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
+- `react-redux`에서 `Provider` 함수 가져온 후 `store.ts` 파일을 import 한 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
 ```bash 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
