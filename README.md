@@ -1,4 +1,4 @@
-# :zap: Redux-Toolkit-Middleware 템플렛 페이지입니다.
+# 📝 Redux-Toolkit-Middleware 템플렛 페이지입니다.
 :octocat: https://light9639.github.io/Redux-Toolkit-Middleware/
 
 ![light9639 github io_Redux-Toolkit-Middleware_](https://user-images.githubusercontent.com/95972251/212832435-e5a1adf1-e71c-471b-951e-569ea4380817.png)
@@ -30,7 +30,7 @@ yarn add redux react-redux @reduxjs/toolkit
 ## ✒️ main.tsx, App.tsx, middleware.ts, slice.ts, index.ts 수정 및작성
 ### :zap: main.tsx
 - `react-redux`에서 `Provider` 함수 가져온 후 `store.ts` 파일을 import 한 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
-```bash 
+```js
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
@@ -48,7 +48,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 ```
 
 ### :zap: App.tsx
-```bash
+```js
 import { useState } from "react";
 import ReactLogo from './assets/react.svg'
 import { increment, decrement, incrementByAmount } from "./store/slice";
@@ -106,7 +106,7 @@ export default function App(): JSX.Element {
 ```
 
 ### :zap: middleware.ts
-```bash
+```js
 import { createListenerMiddleware, isAnyOf } from "@reduxjs/toolkit";
 import { decrement, increment, incrementByAmount } from "./slice";
 import type { RootState } from "./index";
@@ -123,7 +123,7 @@ listenerMiddleware.startListening({
 ```
 
 ### :zap: slice.tsx
-```bash
+```js
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // 초기값 타입 만들기
@@ -158,7 +158,7 @@ export default counterSlice.reducer;
 ```
 
 ### :zap: index.tsx
-```bash
+```js
 import { AnyAction, configureStore } from "@reduxjs/toolkit";
 import {
   TypedUseSelectorHook,
