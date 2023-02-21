@@ -29,7 +29,7 @@ yarn add redux react-redux @reduxjs/toolkit
 
 ## ✒️ main.tsx, App.tsx, middleware.ts, slice.ts, index.ts 수정 및작성
 ### :zap: main.tsx
-- `react-redux`에서 `Provider` 함수 가져온 후 `store.ts` 파일을 import 한 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
+- `react-redux`에서 `Provider` 함수 가져온 후 `store.ts` 파일을 `import` 한 후 `<Provider store={store}></Provider>`으로 `<App />`을 둘러싸면 `Redux-Toolkit` 사용준비 완료.
 ```js
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -48,6 +48,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 ```
 
 ### :zap: App.tsx
+- `slice.ts`에서 가져온 함수들을 사용하여 `state` 값을 변경시킨다.
+- `index.ts`에서 타입이 선언된 `useSelector`, `useDispatch`을 가져와 사용한다.
+- `input` 속 값을 `entered`에 할당하여 `input` 속의 숫자만큼 값을 증가시킨다.
 ```js
 import { useState } from "react";
 import ReactLogo from './assets/react.svg'
@@ -106,6 +109,7 @@ export default function App(): JSX.Element {
 ```
 
 ### :zap: middleware.ts
+- 리덕스 미들웨어를 만들어서 로컬스토리지 값을 체크하여 값이 있다면 가져오고, 없다면 새로운 값을 부여한다.
 ```js
 import { createListenerMiddleware, isAnyOf } from "@reduxjs/toolkit";
 import { decrement, increment, incrementByAmount } from "./slice";
@@ -123,6 +127,8 @@ listenerMiddleware.startListening({
 ```
 
 ### :zap: slice.tsx
+- 초기값을 세팅하고 타입을 지정해준다.
+- `reducers`에 `state` 변경 함수를 작성한 다음 `counterSlice.actions`를 통해 내보내서 사용할 수 있게끔 한다.
 ```js
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
@@ -158,6 +164,10 @@ export default counterSlice.reducer;
 ```
 
 ### :zap: index.tsx
+- `counterState` 변수는 로컬스토리지에서 가져오는 역할을 한다.
+- `configureStore`를 이용하여 스토어를 생성한다.
+- `RootState`, `AppDispatch`라는 타입 값을 가져옴으로써 타입을 지정한다.
+- `useDispatch`, `useSelector`에 타입 추가하여 타입 설정한다.
 ```js
 import { AnyAction, configureStore } from "@reduxjs/toolkit";
 import {
